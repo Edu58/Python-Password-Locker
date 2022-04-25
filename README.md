@@ -12,8 +12,12 @@
 
 ## Description
 
-This is a command line password locker made in Python3. It lets the user create an account, and then can continue to store the credentials of different websites in the app. It also provides the user with an option to get a random auto-generated password or enter his/her own. After the user creates an account, they can only login with the created details and no other. <b>However, it does't include persistence and therefore the details credentials and user accounts are lost immediately the process is stopped</b>.  
-
+This is a command line password locker made in Python3. It lets the user create an account, and then can continue to store the credentials of different websites in the app. It also provides the user with an option to get a random auto-generated password or enter his/her own. After the user creates an account, they can only login with the created details and no other. <br>
+<hr>
+<b>Warning!!!</b> 
+<br>
+<b>It doesn't include persistence and therefore the credentials and user accounts are lost immediately the process is stopped. Don't use it to store your real accounts credentials</b>  
+<hr>
 
 ## Behaviour Driven Development
 
