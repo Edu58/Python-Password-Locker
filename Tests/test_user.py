@@ -14,6 +14,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.new_user.username, 'edwin')
         self.assertEqual(self.new_user.password, 'eddy123')
 
+    def test_add_user(self):
+        self.new_user.add_user()
+        self.assertEqual(len(self.new_user.users_list), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

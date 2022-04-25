@@ -6,7 +6,7 @@ class User:
         self.username = username
         self.password = password
 
-    def add_user(self, username, password):
+    def add_user(self):
         User.users_list.append(self)
 
     def delete_user(self):
