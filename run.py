@@ -24,6 +24,10 @@ def credentials():
         new_credentials = Credentials(website, email, username, password)
         new_credentials.add_credential()
 
+    elif choice_2 == 'show':
+        for credential in Credentials.display_contacts():
+            print(credential)
+
 
 def main():
     print("Welcome to your Password Locker")
