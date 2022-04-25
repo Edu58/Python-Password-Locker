@@ -3,6 +3,10 @@ from credentials import Credentials
 
 
 def credentials():
+    """
+    This function is executed only if the user is logged in successfully. It allows the user to add, search,
+    show and delete credentials. The while loop keeps the function running as long as there is no error.
+    """
 
     while True:
         print("-" * 100)
@@ -54,6 +58,10 @@ def credentials():
 
 
 def main():
+    """
+    This is the first function to be executed. It welcomes the user and asks them to create an account or login.
+    On successful account cretion and login, the user is redirected to the Credential function
+    """
     print("Welcome to your Password Locker")
     print("-" * 100)
     print('Create an account to store your credentials or Login if you already have an account')
