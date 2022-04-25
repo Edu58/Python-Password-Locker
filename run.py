@@ -25,8 +25,7 @@ def credentials():
         new_credentials.add_credential()
 
     elif choice_2 == 'show':
-        for credential in Credentials.display_contacts():
-            print(credential)
+        Credentials.display_credentials()
 
     elif choice_2 == 'search':
         print('Enter the website name:')

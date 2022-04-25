@@ -24,7 +24,10 @@ class MyTestCase(unittest.TestCase):
     def test_display_credentials(self):
         self.new_credentials.add_credential()
 
-        test_credential = Credentials('instagram')
+        test_credential = Credentials('instagram', 'inst@gmail.com', 'vapor', 'insta4234')
+        test_credential.add_credential()
+
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
 
     def test_delete_credential(self):
         self.new_credentials.add_credential()
@@ -32,7 +35,7 @@ class MyTestCase(unittest.TestCase):
         test_credential = Credentials('tiktok', 'test@gmail.com', 'tiktoker', 'tiktoker9876')
         test_credential.add_credential()
 
-        self.new_credentials.delete_credential()
+        self.new_credentials.delete_credential('facebook')
         self.assertEqual(len(Credentials.credentials_list), 1)
 
     def test_search_credentials(self):

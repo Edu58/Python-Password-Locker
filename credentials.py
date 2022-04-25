@@ -12,7 +12,7 @@ class Credentials:
         Credentials.credentials_list.append(self)
 
     @classmethod
-    def display_contacts(cls):
+    def display_credentials(cls):
         return cls.credentials_list
 
     @classmethod
