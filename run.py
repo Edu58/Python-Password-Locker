@@ -9,6 +9,21 @@ def credentials():
     print("Enter search - search a credential by the website")
     print("Enter delete - delete a credential")
 
+    choice_2 = input()
+
+    if choice_2 == 'add':
+        print('Enter the website name:')
+        website = input()
+        print('Enter the email used to login to the website:')
+        email = input()
+        print('Enter the username used to login to the website:')
+        username = input()
+        print('Enter the password used to login to the website:')
+        password = input()
+
+        new_credentials = Credentials(website, email, username, password)
+        new_credentials.add_credential()
+
 
 def main():
     print("Welcome to your Password Locker")
