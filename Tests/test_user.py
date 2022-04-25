@@ -8,7 +8,7 @@ class MyTestCase(unittest.TestCase):
         self.new_user = User('edwin', 'eddy123')
 
     def tearDown(self) -> None:
-        self.new_user.users_list = []
+        User.users_list = []
 
     def test_if_user_is_created_correctly(self):
         self.assertEqual(self.new_user.username, 'edwin')
@@ -17,6 +17,15 @@ class MyTestCase(unittest.TestCase):
     def test_add_user(self):
         self.new_user.add_user()
         self.assertEqual(len(self.new_user.users_list), 1)
+
+    def test_delete_user(self):
+        self.new_user.add_user()
+
+        test_user = User('ed', 'ed456')
+        test_user.add_user()
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.users_list), 1)
 
 
 if __name__ == '__main__':
