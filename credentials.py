@@ -11,3 +11,5 @@ class Credentials:
     def add_credential(self):
         Credentials.credentials_list.append(self)
 
+    def delete_credential(self):
+        Credentials.credentials_list.remove(self)
