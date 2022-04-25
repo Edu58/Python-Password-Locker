@@ -27,6 +27,18 @@ class MyTestCase(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.users_list), 1)
 
+    def test_successful_login(self):
+        self.new_user.add_user()
+
+        correct_login = User.login('edwin', 'eddy123')
+        self.assertTrue(correct_login)
+
+    def test_failed_login(self):
+        self.new_user.add_user()
+
+        wrong_login = User.login('edwin', 'eddy12')
+        self.assertFalse(wrong_login)
+
 
 if __name__ == '__main__':
     unittest.main()
