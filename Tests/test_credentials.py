@@ -21,6 +21,11 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    def test_display_credentials(self):
+        self.new_credentials.add_credential()
+
+        test_credential = Credentials('instagram')
+
     def test_delete_credential(self):
         self.new_credentials.add_credential()
 

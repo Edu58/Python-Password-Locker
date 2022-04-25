@@ -12,6 +12,10 @@ class Credentials:
         Credentials.credentials_list.append(self)
 
     @classmethod
+    def display_contacts(cls):
+        return cls.credentials_list
+
+    @classmethod
     def search_credentials(cls, website):
         for credential in cls.credentials_list:
             if credential.website == website:
