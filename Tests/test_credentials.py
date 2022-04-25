@@ -3,8 +3,12 @@ from credentials import Credentials
 
 
 class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+
+    def setUp(self) -> None:
+        self.new_credentials = Credentials('facebook', 'ed@gmail.com', 'ed', 'edd12345')
+
+    def tearDown(self) -> None:
+        Credentials.credential_list = []
 
 
 if __name__ == '__main__':
