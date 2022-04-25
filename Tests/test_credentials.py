@@ -30,6 +30,13 @@ class MyTestCase(unittest.TestCase):
         self.new_credentials.delete_credential()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    def test_search_credential(self):
+        self.new_credentials.add_credential()
+
+        test_search = self.search_credentials('facebook')
+
+        self.assertEqual(test_search, self.new_credentials)
+
 
 if __name__ == '__main__':
     unittest.main()
