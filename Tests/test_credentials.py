@@ -21,6 +21,15 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    def test_delete_credential(self):
+        self.new_credentials.add_credential()
+
+        test_credential = Credentials('tiktok', 'test@gmail.com', 'tiktoker', 'tiktoker9876')
+        test_credential.add_credential()
+
+        self.new_credentials.delete_credential()
+        self.assertEqual(len(Credentials.credentials_list), 1)
+
 
 if __name__ == '__main__':
     unittest.main()
