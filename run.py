@@ -33,17 +33,17 @@ def credentials():
         elif choice_2 == 'show':
             for credential in Credentials.display_credentials():
                 print(f'{credential.website}, {credential.email}, {credential.username}, {credential.password}')
-                print("-" * 100)
-                print("-" * 100)
 
         elif choice_2 == 'search':
             print('Enter the website name:')
             search = input()
 
-            Credentials.search_credentials(search)
+            send_search = Credentials.search_credentials(search)
 
-            print("-" * 100)
-            print("-" * 100)
+            print(f'Website - {send_search.website}')
+            print(f'Email - {send_search.email}')
+            print(f'Username - {send_search.username}')
+            print(f'Password - {send_search.password}')
 
         elif choice_2 == 'delete':
             print('Enter name of website and it\'s credentials will be permanently deleted:')
@@ -51,9 +51,6 @@ def credentials():
             delete_credential = input()
 
             Credentials.delete_credential(delete_credential)
-
-            print("-" * 100)
-            print("-" * 100)
 
 
 def main():
@@ -76,7 +73,9 @@ def main():
         new_user = User(new_username, new_password)
         new_user.add_user()
 
-        credentials()
+        print('Password locker account created successfully. Go ahead and login to your account')
+
+        main()
 
     elif choice_1 == 'login':
         print('Enter your password locker username:')
