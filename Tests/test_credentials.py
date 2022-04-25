@@ -37,6 +37,13 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(test_search, self.new_credentials)
 
+    def test_search_credentials_not_found(self):
+        self.new_credentials.add_credential()
+
+        test_search = Credentials.search_credentials('instagram')
+
+        self.assertEqual(test_search, 'No such credentials. Try adding them first or check your spelling and try again.')
+
 
 if __name__ == '__main__':
     unittest.main()
