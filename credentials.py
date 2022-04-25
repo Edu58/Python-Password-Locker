@@ -4,7 +4,7 @@ class Credentials:
     credentials_list = []
 
     def __init__(self, website, email, username, password):
-        """Acts like a constructor and is called everytime a new Credential objected is created"""
+        """Acts like a constructor and is called everytime a new Credential objecte is created"""
         self.website = website
         self.email = email
         self.username = username
