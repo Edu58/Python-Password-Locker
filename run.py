@@ -28,6 +28,12 @@ def credentials():
         for credential in Credentials.display_contacts():
             print(credential)
 
+    elif choice_2 == 'search':
+        print('Enter the website name:')
+        search = input()
+
+        Credentials.search_credentials(search)
+
 
 def main():
     print("Welcome to your Password Locker")
