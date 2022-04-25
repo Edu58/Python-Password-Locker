@@ -23,5 +23,10 @@ class Credentials:
             else:
                 return 'No such credentials. Try adding them first or check your spelling and try again.'
 
-    def delete_credential(self):
-        Credentials.credentials_list.remove(self)
+    @classmethod
+    def delete_credential(cls, website):
+        for credential in cls.credentials_list:
+            if credential.website == website:
+                cls.credentials_list.remove(credential)
+            else:
+                return 'No credentials found'

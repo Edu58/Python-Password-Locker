@@ -34,6 +34,13 @@ def credentials():
 
         Credentials.search_credentials(search)
 
+    elif choice_2 == 'delete':
+        print('Enter name of website and it\'s credentials will be permanently deleted:')
+        print('Warning, This action is irreversible!!!!')
+        delete_credential = input()
+
+        Credentials.delete_credential(delete_credential)
+
 
 def main():
     print("Welcome to your Password Locker")
