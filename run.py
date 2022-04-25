@@ -1,5 +1,7 @@
 from user import User
 from credentials import Credentials
+import random
+import string
 
 
 def credentials():
@@ -21,24 +23,40 @@ def credentials():
 
         choice_2 = input()
 
-        if choice_2 == 'add':
+        if choice_2.lower() == 'add':
             print('Enter the website name:')
             website = input()
             print('Enter the email used to login to the website:')
             email = input()
             print('Enter the username used to login to the website:')
             username = input()
-            print('Enter the password used to login to the website:')
-            password = input()
 
-            new_credentials = Credentials(website, email, username, password)
-            new_credentials.add_credential()
+            print('Enter yes - generate a password for me')
+            print('Enter no - I\'d like to enter my own password')
+            gen_password = input()
 
-        elif choice_2 == 'show':
+            if gen_password.lower() == 'yes':
+                print('How long would you like you password to be? e.g. 6, 5, 7')
+                weight = input()
+
+                random_pass = ''.join(
+                    random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=int(weight)))
+
+                new_credentials = Credentials(website, email, username, random_pass)
+                new_credentials.add_credential()
+
+            elif gen_password.lower() == 'no':
+                print('Enter the password used to login to the website:')
+                password = input()
+
+                new_credentials = Credentials(website, email, username, password)
+                new_credentials.add_credential()
+
+        elif choice_2.lower() == 'show':
             for credential in Credentials.display_credentials():
                 print(f'{credential.website}, {credential.email}, {credential.username}, {credential.password}')
 
-        elif choice_2 == 'search':
+        elif choice_2.lower() == 'search':
             print('Enter the website name:')
             search = input()
 
@@ -49,7 +67,7 @@ def credentials():
             print(f'Username - {send_search.username}')
             print(f'Password - {send_search.password}')
 
-        elif choice_2 == 'delete':
+        elif choice_2.lower() == 'delete':
             print('Enter name of website and it\'s credentials will be permanently deleted:')
             print('Warning, This action is irreversible!!!!')
             delete_credential = input()
@@ -60,10 +78,9 @@ def credentials():
 def main():
     """
     This is the first function to be executed. It welcomes the user and asks them to create an account or login.
-    On successful account cretion and login, the user is redirected to the Credential function
+    On successful account creation and login, the user is redirected to the Credential function
     """
-    print("Welcome to your Password Locker")
-    print("-" * 100)
+    print("WELCOME TO PASSWORD LOCKER")
     print('Create an account to store your credentials or Login if you already have an account')
     print('Enter create - create account')
     print('Enter login - login to your account')
@@ -71,7 +88,7 @@ def main():
 
     choice_1 = input()
 
-    if choice_1 == 'create':
+    if choice_1.lower() == 'create':
         print('Enter a username you would like to use for your password locker account:')
         new_username = input()
         print('Enter a password you would like to use for your password locker account:')
@@ -85,7 +102,7 @@ def main():
 
         main()
 
-    elif choice_1 == 'login':
+    elif choice_1.lower() == 'login':
         print('Enter your password locker username:')
         login_username = input()
         print('Enter your password locker password:')
