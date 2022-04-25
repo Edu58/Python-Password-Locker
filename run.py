@@ -3,42 +3,57 @@ from credentials import Credentials
 
 
 def credentials():
-    print('What action would you like to perform?')
-    print("Enter add - add credentials")
-    print("Enter show - show all credentials")
-    print("Enter search - search a credential by the website")
-    print("Enter delete - delete a credential")
 
-    choice_2 = input()
+    while True:
+        print("-" * 100)
+        print("-" * 100)
+        print('What action would you like to perform?')
+        print("Enter add - add credentials")
+        print("Enter show - show all credentials")
+        print("Enter search - search a credential by the website")
+        print("Enter delete - delete a credential")
+        print("-" * 100)
+        print("-" * 100)
 
-    if choice_2 == 'add':
-        print('Enter the website name:')
-        website = input()
-        print('Enter the email used to login to the website:')
-        email = input()
-        print('Enter the username used to login to the website:')
-        username = input()
-        print('Enter the password used to login to the website:')
-        password = input()
+        choice_2 = input()
 
-        new_credentials = Credentials(website, email, username, password)
-        new_credentials.add_credential()
+        if choice_2 == 'add':
+            print('Enter the website name:')
+            website = input()
+            print('Enter the email used to login to the website:')
+            email = input()
+            print('Enter the username used to login to the website:')
+            username = input()
+            print('Enter the password used to login to the website:')
+            password = input()
 
-    elif choice_2 == 'show':
-        Credentials.display_credentials()
+            new_credentials = Credentials(website, email, username, password)
+            new_credentials.add_credential()
 
-    elif choice_2 == 'search':
-        print('Enter the website name:')
-        search = input()
+        elif choice_2 == 'show':
+            for credential in Credentials.display_credentials():
+                print(f'{credential.website}, {credential.email}, {credential.username}, {credential.password}')
+                print("-" * 100)
+                print("-" * 100)
 
-        Credentials.search_credentials(search)
+        elif choice_2 == 'search':
+            print('Enter the website name:')
+            search = input()
 
-    elif choice_2 == 'delete':
-        print('Enter name of website and it\'s credentials will be permanently deleted:')
-        print('Warning, This action is irreversible!!!!')
-        delete_credential = input()
+            Credentials.search_credentials(search)
 
-        Credentials.delete_credential(delete_credential)
+            print("-" * 100)
+            print("-" * 100)
+
+        elif choice_2 == 'delete':
+            print('Enter name of website and it\'s credentials will be permanently deleted:')
+            print('Warning, This action is irreversible!!!!')
+            delete_credential = input()
+
+            Credentials.delete_credential(delete_credential)
+
+            print("-" * 100)
+            print("-" * 100)
 
 
 def main():
@@ -71,14 +86,13 @@ def main():
         print("-" * 100)
 
         login_existing_user = User.login(login_username, login_password)
-        print('Successfully created an account. Now you can add credentials')
 
         if login_existing_user:
             print('Logged in successfully')
             credentials()
 
         else:
-            print('User does\'t exist. Try again or create an account.')
+            print('User doesn\'t exist. Try again or create an account.')
 
 
 if __name__ == '__main__':
