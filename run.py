@@ -8,16 +8,31 @@ print('Enter create - create account')
 print('Enter login - login to your account')
 print("-"*100)
 
-login_details = input()
+choice_1 = input()
 
-if login_details == 'create':
+if choice_1 == 'create':
     print('Enter a username you would like to use for your password locker account:')
-    login_username = input()
+    new_username = input()
     print('Enter a password you would like to use for your password locker account:')
-    login_password = input()
+    new_password = input()
+    print("-" * 100)
 
-    new_user = User(login_username, login_password)
+    new_user = User(new_username, new_password)
     new_user.add_user()
+
+elif choice_1 == 'login':
+    print('Enter your password locker username:')
+    login_username = input()
+    print('Enter your password locker password:')
+    login_password = input()
+    print("-" * 100)
+
+    login_existing_user = User.login(login_username, login_password)
+
+    if login_existing_user:
+        print('Logged in successfully')
+    else:
+        print('User does\'t exist. Try again or create an account.')
 
 
 def main():
