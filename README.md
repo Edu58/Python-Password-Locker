@@ -32,7 +32,7 @@ The user is able to;
 
 - A computer
 
-- An access to the Internet
+- Access to the Internet
 - An IDE or text editor
 
 ### 1. Local Repository
